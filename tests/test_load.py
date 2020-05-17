@@ -13,6 +13,7 @@ class TestLoad:
 		chrome_options = webdriver.ChromeOptions()
 		chrome_options.add_argument("--no-sandbox")
 		self.driver = webdriver.Chrome(chrome_options=chrome_options)
+		driver.get("https://egarciasec.github.io/pdex/")
 
 	def teardown(self):
 		self.driver.quit()
@@ -20,12 +21,10 @@ class TestLoad:
 
 	def test_simple_load(self):
 		driver = self.driver
-		driver.get("https://egarciasec.github.io/pdex/")
 		MainPage(driver).assert_page_title()
 
 	def test_pokemon_search(self):
 		driver = self.driver
-		driver.get("https://egarciasec.github.io/pdex/")
 		MainPage(driver).search(self.name)
 		for _ in range(0,3):
 			try:
@@ -36,7 +35,6 @@ class TestLoad:
 
 	def test_pokemon_image(self):
 		driver = self.driver
-		driver.get("https://egarciasec.github.io/pdex/")
 		MainPage(driver).search(self.name)
 		for _ in range(0,3):
 			try:
