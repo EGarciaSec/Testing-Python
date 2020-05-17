@@ -3,8 +3,11 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options 
 import chromedriver_binary 
+from core.MainPage.page import MainPage
 
 class TestLoad:
+
+	name="Bulbasaur"
 
 	def setup(self):
 		chrome_options = webdriver.ChromeOptions()
@@ -18,20 +21,15 @@ class TestLoad:
 	def test_simple_load(self):
 		driver = self.driver
 		driver.get("https://egarciasec.github.io/pdex/")
-		assert driver.find_element_by_xpath('//*[@id="root"]/h1')
+		MainPage(driver).assert_page_title()
 
 	def test_pokemon_search(self):
 		driver = self.driver
 		driver.get("https://egarciasec.github.io/pdex/")
-		input_element = driver.find_element_by_xpath('//*[@id="PokeINFO"]/input')
-		input_element.clear()
-		input_element.send_keys("bulbasaur")
-		search = driver.find_element_by_xpath('//*[@id="PokeINFO"]/button')
-		search.click()
+		MainPage(driver).search(self.name)
 		for _ in range(0,3):
 			try:
-				pokemon = driver.find_element_by_xpath('//*[@id="root"]/h2')
-				assert pokemon.text == "#1 Bulbasaur"
+				MainPage(driver).assert_expected_name("#1 Bulbasaur")
 				break
 			except:
 				time.sleep(1)
@@ -39,15 +37,10 @@ class TestLoad:
 	def test_pokemon_image(self):
 		driver = self.driver
 		driver.get("https://egarciasec.github.io/pdex/")
-		input_element = driver.find_element_by_xpath('//*[@id="PokeINFO"]/input')
-		input_element.clear()
-		input_element.send_keys("bulbasaur")
-		search = driver.find_element_by_xpath('//*[@id="PokeINFO"]/button')
-		search.click()
+		MainPage(driver).search(self.name)
 		for _ in range(0,3):
 			try:
-				image_element = driver.find_element_by_xpath('//*[@id="root"]/img')
-				assert image_element.size['height'] > 0
+				MainPage(driver).assert_pokemon_image()
 				break
 			except:
 				time.sleep(1)
