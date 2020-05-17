@@ -1,0 +1,5 @@
+# VS Code
+.vscode
+
+# Pycache
+tests/__pycache__/
