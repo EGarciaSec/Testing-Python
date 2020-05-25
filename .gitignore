@@ -2,4 +2,4 @@
 .vscode
 
 # Pycache
-tests/__pycache__/
+*/__pycache__/
