@@ -1,1 +1,1 @@
-python -m pytest C:\Users\Usuario\Testing-Python
+python -m pytest C:\Users\Usuario\Testing-Python\tests\api
