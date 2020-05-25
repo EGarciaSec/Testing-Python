@@ -2,6 +2,7 @@ import pytest
 import requests
 from core.api.api_requests import APIRequests
 
+@pytest.mark.api
 class TestAPI:
 
     expected_name = "bulbasaur"

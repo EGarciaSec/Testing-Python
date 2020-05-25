@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import chromedriver_binary 
 from core.MainPage.page import MainPage
 
+@pytest.mark.ui
 class TestLoad:
 
 	name="Bulbasaur"
