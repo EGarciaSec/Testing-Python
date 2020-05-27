@@ -1,5 +1,13 @@
-# VS Code
+# IDE
 .vscode
 
-# Pycache
-*/__pycache__/
+# MAC JUNK
+._*
+.DS_Store
+
+# PYTHON
+*__pycache__
+*.pyc
+*.pickle
+*.npy
+.cache/
