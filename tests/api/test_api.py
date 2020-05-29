@@ -1,6 +1,7 @@
 import pytest
 from core.api.api_requests import APIRequests
 
+
 @pytest.mark.api
 class TestAPI:
 
