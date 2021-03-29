@@ -1,4 +1,4 @@
-FROM joyzoursky/python-chromedriver:3.6
+FROM joyzoursky/python-chromedriver:3.6-selenium
 
 WORKDIR /suite
 COPY . /suite
